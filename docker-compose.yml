@@ -1,0 +1,7 @@
+
+services:
+  test-feed-files:
+    build: .
+    image: test-feed-files
+    volumes: 
+      - ./data:/home/app/data
