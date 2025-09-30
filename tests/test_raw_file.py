@@ -21,7 +21,10 @@ class TestFeedRecordFileFormat(unittest.TestCase):
                 self.parsed_data = parser.parse_file(self.file_path)
             except parser.json.JSONDecodeError as e:
                 self.fail(f"JSON decoding failed: {e}")
-            self.assertTrue(len(self.parsed_data) > 0, f"Parsed file {self.file_path} is empty.")
+            self.assertTrue(
+                len(self.parsed_data) > 0,
+                f"Parsed file {self.file_path} is empty."
+            )
 
 
 
@@ -44,9 +47,17 @@ class TestFeedRecordFileContent(unittest.TestCase):
 
     def test_feed_record_file_matches_count(self):
         with self.subTest(feed_file=self.file_path.name):
-            self.assertEqual(len(self.missmatches), 0, f"Record count mismatches found for stories {', '.join(self.missmatches)}.")
+            self.assertEqual(
+                len(self.missmatches), 
+                0, 
+                f"Record count mismatches found for stories {', '.join(self.missmatches)}."
+            )
 
     def test_feed_record_missing_indexes(self):
         with self.subTest(feed_file=self.file_path.name):
-            self.assertEqual(len(self.missing_indexes), 0, f"Missing indexes found for stories {', '.join(self.missing_indexes)}.")
+            self.assertEqual(
+                len(self.missing_indexes), 
+                0, 
+                f"Missing indexes found for stories {', '.join(self.missing_indexes)}."
+            )
 
